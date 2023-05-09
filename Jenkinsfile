@@ -8,31 +8,32 @@ pipeline {
         secret_key = 'KkSjHz27zWErGAUJMXUcA+kpdp3/QyDzOnurhUXo'
     }
   
-          stage('Checkout') {
+    stages {
+        stage('Checkout') {
             // Clean the workspace
             cleanWs()
             // Get some code from a GitHub repository
             checkout scm
         }
-          stage('Build AMI') {
-                steps {
-                    dir('./packer'){
-                     sh 'ls -la; pwd; packer build template.json'
-                    }
+        
+        stage('Build AMI') {
+            steps {
+                dir('./packer') {
+                    sh 'ls -la; pwd; packer build template.json'
                 }
-          }
-          
-         stage('Terraform Deploy'){
-             steps {
-                 dir('./terraform'){
-
-                 sh  """
-                     terraform init; terraform plan; terraform apply -auto-approve -var 'access_key=$access_key' -var 'secret_key=$secret_key'
-                     """
-
-                 }
-
-             }
-         }
+            }
+        }
+              
+        stage('Terraform Deploy') {
+            steps {
+                dir('./terraform') {
+                    sh """
+                        terraform init
+                        terraform plan
+                        terraform apply -auto-approve -var 'access_key=$access_key' -var 'secret_key=$secret_key'
+                    """
+                }
+            }
+        }
     }
-
+}
