@@ -1,7 +1,7 @@
 
 variable region {
     description = "AWS Region"
-    default = "us-east-1"
+    default = "us-west-2"
 }
 
 variable "stack" {
