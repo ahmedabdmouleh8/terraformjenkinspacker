@@ -28,6 +28,7 @@ pipeline {
             steps {
                 dir('./terraform') {
                     sh """
+                        terraform validate
                         terraform init
                         terraform plan
                         terraform apply -auto-approve -var access_key=${access_key} -var secret_key=${secret_key}
