@@ -29,5 +29,5 @@ data "aws_ami" "packer_image" {
     values = ["hvm"]
   }
 
-  owners = ["218067254075"] # Canonical
+  owners = ["989557803452"] # Canonical
 }
