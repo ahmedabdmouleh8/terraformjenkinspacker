@@ -10,12 +10,12 @@ pipeline {
   
     stages {
         stage('Checkout') {
-            // Clean the workspace
-            cleanWs()
-            // Get some code from a GitHub repository
-            checkout scm
+            steps {
+                cleanWs()
+                checkout scm
+            }
         }
-        
+    
         stage('Build AMI') {
             steps {
                 dir('./packer') {
@@ -23,14 +23,14 @@ pipeline {
                 }
             }
         }
-              
+          
         stage('Terraform Deploy') {
             steps {
                 dir('./terraform') {
                     sh """
                         terraform init
                         terraform plan
-                        terraform apply -auto-approve -var 'access_key=$access_key' -var 'secret_key=$secret_key'
+                        terraform apply -auto-approve -var access_key=${access_key} -var secret_key=${secret_key}
                     """
                 }
             }
