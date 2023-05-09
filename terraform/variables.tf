@@ -2,7 +2,7 @@
 variable "region" {
   description = "AWS Region"
   default     = "us-west-2"
-}
+
 
 variable "stack" {
   description = "Name of the Stack"
