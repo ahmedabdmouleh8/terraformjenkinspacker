@@ -6,8 +6,8 @@ pipeline {
     environment {
         terraform_version = '0.11.11'
         packer_version = '1.4.3'
-        access_key = 'input_your_access_key'
-        secret_key = 'input_your_secret_key'
+        access_key = 'AKIA6MZR5ZG6C4DT6HXV'
+        secret_key = 'KkSjHz27zWErGAUJMXUcA+kpdp3/QyDzOnurhUXo'
     }
     stages {
           stage('Install Terraform') {
