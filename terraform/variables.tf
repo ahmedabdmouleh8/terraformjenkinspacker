@@ -4,14 +4,6 @@ variable region {
     default = "us-west-2"
 }
 
-variable "access_key" {
-  type = string
-}
-
-variable "secret_key" {
-  type = string
-}
-
 variable "stack" {
     description = "Name of the Stack"
     default = "terraform"
