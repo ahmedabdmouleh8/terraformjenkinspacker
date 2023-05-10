@@ -1,11 +1,7 @@
 pipeline {
     agent any
    
-    environment {
-        access_key = 'AKIA6MZR5ZG6C4DT6HXV'
-        secret_key = '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'
-    }
-  
+
     stages {
         stage('Checkout') {
             steps {
@@ -29,7 +25,7 @@ pipeline {
                     sh """
                         terraform init
                         terraform plan
-                        terraform apply -auto-approve -var access_key=${access_key} -var secret_key=${secret_key}
+                        terraform apply -auto-approve -var access_key=${AWS_ACCESS_KEY} -var secret_key=${AWS_SECRET_KEY}
                     """
                     } 
                 }
