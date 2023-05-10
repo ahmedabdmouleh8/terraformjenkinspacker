@@ -25,7 +25,7 @@ pipeline {
                     sh """
                         terraform init
                         terraform plan
-                        terraform apply -auto-approve -var access_key=${AWS_ACCESS_KEY} -var secret_key=${AWS_SECRET_KEY}
+                        terraform apply -auto-approve
                     """
                     } 
                 }
