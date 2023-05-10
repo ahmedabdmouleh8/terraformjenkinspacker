@@ -26,7 +26,7 @@ resource "aws_key_pair" "generated_key" {
       chmod 400 ./'${var.generated_key_name}'.pem
     EOT
   }
-
+}
 data "aws_ami" "packer_image" {
   most_recent = true
 
