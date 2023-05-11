@@ -7,7 +7,7 @@ output "curl" {
 }
 
 output "Login-with-Key" {
-    value = "ssh -i ${aws_key_pair.generated_key}.pem ubuntu@${aws_instance.ec2.public_ip}"
+    value = "ssh -i ${aws_key_pair.generated_key.key_name}.pem ubuntu@${aws_instance.ec2.public_ip}"
 }
 
 
