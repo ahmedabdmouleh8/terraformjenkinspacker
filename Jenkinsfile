@@ -27,7 +27,7 @@ pipeline {
                         terraform plan
                         terraform apply -auto-approve
                         terraform output -raw keypair > key.pem
-                        archiveArtifacts 'key.pem'
+                        archiveArtifacts 'keypair' 
                     """
                     } 
                 }
