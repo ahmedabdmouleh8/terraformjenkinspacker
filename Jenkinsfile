@@ -26,6 +26,8 @@ pipeline {
                         terraform init
                         terraform plan
                         terraform apply -auto-approve
+                        sh 'terraform output -raw keypair > key.pem'
+                        archiveArtifacts 'key.pem'
                     """
                     } 
                 }
