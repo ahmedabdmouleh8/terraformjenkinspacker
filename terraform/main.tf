@@ -17,7 +17,7 @@ resource "tls_private_key" "dev_key" {
 }
 
 resource "aws_key_pair" "generated_key" {
-  key_name   = var.generated_key_name
+  key_name   = var.generated_key_name-${timestamp()
   public_key = tls_private_key.dev_key.public_key_openssh
 
   provisioner "local-exec" {    # Generate "terraform-key-pair.pem" in current directory
