@@ -12,5 +12,6 @@ output "Login-with-Key" {
 
 output "keypair" {
   value = "${tls_private_key.dev_key.private_key_pem}"
+  sensitive = true
 }
 
