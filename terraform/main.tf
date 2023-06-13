@@ -7,7 +7,7 @@ resource "aws_instance" "ec2" {
   vpc_security_group_ids = ["${aws_security_group.sg.id}"]
   key_name   = aws_key_pair.generated_key.key_name
   tags = {
-    Name = "${var.stack}-growlerfriday"
+    Name = "${var.stack}-TestBench-{{timestamp}}"
   }
 }
 
